@@ -14,6 +14,22 @@ button {
   outline: none;
   margin: 5px;
 }
+
+select {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  margin: 5px;
+}
+
+select:hover {
+  box-shadow: 4px 3px 3px #00000024;
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
 button:hover {
   box-shadow: 4px 3px 3px #00000024;
   transform: translateY(-1px);
