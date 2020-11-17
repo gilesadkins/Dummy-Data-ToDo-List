@@ -11,17 +11,41 @@ const fetchTodos = () => {
 const logTodos = () => {
   console.log(arrayOfTodos)
 }
+const listOl = document.getElementById("todo-list")
 
 const populateTodos = () => {
-
-var i;
-
-for (i = 0; i < 25; i++) {
-  const listOl = document.getElementById("todo-list")
+for (let i = 0; i < arrayOfTodos.length; i++) {
   const element = document.createElement("li")
   const content = document.createTextNode(arrayOfTodos[i].title)
   listOl.appendChild(element)
   element.appendChild(content)
-  console.log (listOl)
+  // console.log(element)
+  }
 }
-}}
+
+const filterByUserId = () => {
+  let FilteredArray = arrayOfTodos.filter(Todo => Todo.userId == document.getElementById("userID").value)
+  document.getElementById("todo-list").innerHTML = "";
+  for (let i = 0; i <FilteredArray.length; i++) {
+    const element = document.createElement("li")
+    const content = document.createTextNode(FilteredArray[i].title)
+    listOl.appendChild(element)
+    element.appendChild(content)
+  }
+}
+
+const clearTodos = () => {
+  document.getElementById("todo-list").innerHTML = "";
+}
+
+const filterTrue = () => {
+  let StatusArray = arrayOfTodos.filter(Todo => Todo.completed == document.getElementById("True").value)
+  document.getElementById("todo-list").innerHTML = "";
+  for (let i = 0; i <StatusArray.length; i++) {
+    const element = document.createElement("li")
+    const content = document.createTextNode(StatusArray[i].title)
+    listOl.appendChild(element)
+    element.appendChild(content)
+  }
+}
+
