@@ -39,7 +39,18 @@ const clearTodos = () => {
 }
 
 const filterTrue = () => {
-  let StatusArray = arrayOfTodos.filter(Todo => Todo.completed == document.getElementById("True").value)
+  let StatusArray = arrayOfTodos.filter(Todo => Todo.completed == true)
+  document.getElementById("todo-list").innerHTML = "";
+  for (let i = 0; i <StatusArray.length; i++) {
+    const element = document.createElement("li")
+    const content = document.createTextNode(StatusArray[i].title)
+    listOl.appendChild(element)
+    element.appendChild(content)
+  }
+}
+
+const filterFalse = () => {
+  let StatusArray = arrayOfTodos.filter(Todo => Todo.completed == false)
   document.getElementById("todo-list").innerHTML = "";
   for (let i = 0; i <StatusArray.length; i++) {
     const element = document.createElement("li")
